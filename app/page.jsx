@@ -140,14 +140,14 @@ export default function SafeNestLandingPage() {
   const plans = [
     {
       name: "SafeNest Basic",
-      price: "₹699",
+      price: "₹999",
       subtitle: "Quick identity & contact verification",
       features: ["Aadhaar / ID check", "Phone verification", "Basic address confirmation", "48-hour report"],
       highlight: false,
     },
     {
       name: "SafeNest Secure",
-      price: "₹1,999",
+      price: "₹2,499",
       subtitle: "Complete background & reference check",
       features: ["Everything in Basic", "Previous employer check", "Reference verification", "Criminal record screening", "Risk score report"],
       highlight: true,
