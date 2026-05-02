@@ -208,7 +208,7 @@ export default function SafeNestLandingPage() {
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-2">
           <div>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-medium text-[#0D47A1] shadow-sm">
-              <Icon name="badge" className="h-4 w-4" /> Backed by UrbanMed Tech Pvt Ltd
+              <Icon name="badge" className="h-4 w-4" /> Backed by Urban Tech 
             </div>
             <h1 className="text-5xl font-bold leading-tight tracking-tight md:text-6xl">
               Verify maids, drivers & home staff before you hire.
@@ -465,7 +465,7 @@ export default function SafeNestLandingPage() {
           <Button className="px-8 py-4 text-base">Start on WhatsApp</Button>
           <Button variant="outline" className="px-8 py-4 text-base">RWA Partnership</Button>
         </div>
-        <div className="mt-10 text-sm text-slate-500">SafeNest by UrbanMed Tech Pvt Ltd • Hyderabad, India</div>
+        <div className="mt-10 text-sm text-slate-500">SafeNest by Urban Tech • Hyderabad, India</div>
       </section>
     </div>
   );
