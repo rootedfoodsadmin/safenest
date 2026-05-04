@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 
 const BRAND = {
@@ -140,14 +139,14 @@ export default function SafeNestLandingPage() {
   const plans = [
     {
       name: "SafeNest Basic",
-      price: "₹999",
+      price: "₹699",
       subtitle: "Quick identity & contact verification",
       features: ["Aadhaar / ID check", "Phone verification", "Basic address confirmation", "48-hour report"],
       highlight: false,
     },
     {
       name: "SafeNest Secure",
-      price: "₹2,499",
+      price: "₹1,999",
       subtitle: "Complete background & reference check",
       features: ["Everything in Basic", "Previous employer check", "Reference verification", "Criminal record screening", "Risk score report"],
       highlight: true,
@@ -208,7 +207,7 @@ export default function SafeNestLandingPage() {
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-2">
           <div>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-medium text-[#0D47A1] shadow-sm">
-              <Icon name="badge" className="h-4 w-4" /> Backed by Urban Tech 
+              <Icon name="badge" className="h-4 w-4" /> Backed by UrbanMed Tech Pvt Ltd
             </div>
             <h1 className="text-5xl font-bold leading-tight tracking-tight md:text-6xl">
               Verify maids, drivers & home staff before you hire.
@@ -425,18 +424,24 @@ export default function SafeNestLandingPage() {
               ))}
             </div>
           </div>
-          <Card className="border-0 bg-[#0D47A1] text-white shadow-xl">
-            <div className="p-8">
-              <Icon name="phone" className="mb-5 h-10 w-10" />
-              <h3 className="mb-5 text-3xl font-bold">Sample WhatsApp Flow</h3>
-              <div className="space-y-4 text-sm">
-                <div className="rounded-2xl bg-white/10 p-4">Hi 👋 Welcome to SafeNest. We verify maids, drivers & home staff in 48 hours.</div>
-                <div className="rounded-2xl bg-white/10 p-4">Please share: name, role, phone number and ID proof.</div>
-                <div className="rounded-2xl bg-white/10 p-4">✅ Verification started. Report will be ready in 24–48 hours.</div>
-                <div className="rounded-2xl bg-[#4CAF50] p-4 font-semibold">✅ Your SafeNest report is ready. Summary: LOW RISK.</div>
+          <div className="rounded-3xl border-0 p-8 text-white shadow-xl" style={{ backgroundColor: BRAND.blue }}>
+            <Icon name="phone" className="mb-5 h-10 w-10 text-white" />
+            <h3 className="mb-5 text-3xl font-bold text-white">Sample WhatsApp Flow</h3>
+            <div className="space-y-4 text-sm">
+              <div className="rounded-2xl p-4 text-white" style={{ backgroundColor: "rgba(255,255,255,0.14)" }}>
+                Hi 👋 Welcome to SafeNest. We verify maids, drivers & home staff in 48 hours.
+              </div>
+              <div className="rounded-2xl p-4 text-white" style={{ backgroundColor: "rgba(255,255,255,0.14)" }}>
+                Please share: name, role, phone number and ID proof.
+              </div>
+              <div className="rounded-2xl p-4 text-white" style={{ backgroundColor: "rgba(255,255,255,0.14)" }}>
+                ✅ Verification started. Report will be ready in 24–48 hours.
+              </div>
+              <div className="rounded-2xl p-4 font-semibold text-white" style={{ backgroundColor: BRAND.green }}>
+                ✅ Your SafeNest report is ready. Summary: LOW RISK.
               </div>
             </div>
-          </Card>
+          </div>
         </div>
       </section>
 
@@ -465,7 +470,7 @@ export default function SafeNestLandingPage() {
           <Button className="px-8 py-4 text-base">Start on WhatsApp</Button>
           <Button variant="outline" className="px-8 py-4 text-base">RWA Partnership</Button>
         </div>
-        <div className="mt-10 text-sm text-slate-500">SafeNest by Urban Tech • Hyderabad, India</div>
+        <div className="mt-10 text-sm text-slate-500">SafeNest by UrbanMed Tech Pvt Ltd • Hyderabad, India</div>
       </section>
     </div>
   );
