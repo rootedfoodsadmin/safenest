@@ -264,7 +264,7 @@ export default function SafeNestLandingPage() {
                 <h3 className="text-2xl font-semibold">Request an RWA or business callback</h3>
                 <p className="mt-3 leading-7 text-slate-600">Share basic details. We will call back with a verification plan and bulk pricing.</p>
               </div>
-              <form className="grid gap-3 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
+              <form className="grid gap-3 sm:grid-cols-2" action="#contact">
                 <input placeholder="Business / Society name" className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-[#0B3B82]" />
                 <input placeholder="Contact person" className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-[#0B3B82]" />
                 <input placeholder="Phone number" className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-[#0B3B82]" />
@@ -361,4 +361,5 @@ export default function SafeNestLandingPage() {
     </div>
   );
 }
+
 
