@@ -1,25 +1,9 @@
 import React from "react";
 
-const BRAND = {
-  blue: "#0B3B82",
-  green: "#36A269",
-  ink: "#0F172A",
-  muted: "#64748B",
-  soft: "#F8FAFC",
-};
+const BRAND = { blue: "#0B3B82", green: "#36A269" };
 
 function Icon({ name, className = "h-5 w-5", color = "currentColor" }) {
-  const common = {
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: color,
-    strokeWidth: 2,
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    className,
-  };
-
+  const common = { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", fill: "none", stroke: color, strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round", className };
   const icons = {
     home: <svg {...common}><path d="M3 11.5 12 4l9 7.5" /><path d="M5 10.5V20h14v-9.5" /><path d="M9 20v-6h6v6" /></svg>,
     check: <svg {...common}><path d="M20 6 9 17l-5-5" /></svg>,
@@ -31,35 +15,18 @@ function Icon({ name, className = "h-5 w-5", color = "currentColor" }) {
     phone: <svg {...common}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.63a2 2 0 0 1-.45 2.11L8 9.75a16 16 0 0 0 6.25 6.25l1.29-1.29a2 2 0 0 1 2.11-.45c.85.3 1.73.51 2.63.63A2 2 0 0 1 22 16.92Z" /></svg>,
     lock: <svg {...common}><rect x="3" y="11" width="18" height="10" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>,
     arrow: <svg {...common}><path d="M5 12h14" /><path d="m13 5 7 7-7 7" /></svg>,
+    qr: <svg {...common}><path d="M3 3h7v7H3z" /><path d="M14 3h7v7h-7z" /><path d="M3 14h7v7H3z" /><path d="M14 14h2v2h-2z" /><path d="M19 14h2v2h-2z" /><path d="M14 19h2v2h-2z" /><path d="M19 19h2v2h-2z" /></svg>,
   };
-
   return icons[name] || icons.check;
 }
 
 function Logo({ compact = false }) {
-  return (
-    <div className="flex items-center gap-3">
-      <div className="relative grid h-10 w-10 place-items-center rounded-2xl bg-[#0B3B82]">
-        <Icon name="home" className="h-6 w-6 text-white" />
-        <span className="absolute -bottom-1 -right-1 grid h-5 w-5 place-items-center rounded-full bg-white shadow-sm">
-          <Icon name="check" className="h-3.5 w-3.5 text-[#36A269]" />
-        </span>
-      </div>
-      {!compact && (
-        <div className="leading-none">
-          <div className="text-xl font-semibold tracking-tight"><span className="text-[#0B3B82]">Safe</span><span className="text-[#36A269]">Nest</span></div>
-          <div className="mt-1 text-[10px] uppercase tracking-[0.22em] text-slate-400">Know who you trust</div>
-        </div>
-      )}
-    </div>
-  );
+  return <div className="flex items-center gap-3"><div className="relative grid h-10 w-10 place-items-center rounded-2xl bg-[#0B3B82]"><Icon name="home" className="h-6 w-6 text-white" /><span className="absolute -bottom-1 -right-1 grid h-5 w-5 place-items-center rounded-full bg-white shadow-sm"><Icon name="check" className="h-3.5 w-3.5 text-[#36A269]" /></span></div>{!compact && <div className="leading-none"><div className="text-xl font-semibold tracking-tight"><span className="text-[#0B3B82]">Safe</span><span className="text-[#36A269]">Nest</span></div><div className="mt-1 text-[10px] uppercase tracking-[0.22em] text-slate-400">Know who you trust</div></div>}</div>;
 }
 
 function Button({ children, variant = "primary", className = "", href = "#contact" }) {
   const base = "inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition";
-  const style = variant === "outline"
-    ? "border border-slate-200 bg-white text-slate-900 hover:border-[#0B3B82] hover:text-[#0B3B82]"
-    : "bg-[#0B3B82] text-white hover:bg-[#092f69]";
+  const style = variant === "outline" ? "border border-slate-200 bg-white text-slate-900 hover:border-[#0B3B82] hover:text-[#0B3B82]" : "bg-[#0B3B82] text-white hover:bg-[#092f69]";
   return <a href={href} className={`${base} ${style} ${className}`}>{children}</a>;
 }
 
@@ -68,13 +35,7 @@ function Card({ children, className = "" }) {
 }
 
 function SectionHeader({ eyebrow, title, subtitle }) {
-  return (
-    <div className="mx-auto mb-10 max-w-3xl text-center">
-      {eyebrow && <div className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-[#36A269]">{eyebrow}</div>}
-      <h2 className="text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">{title}</h2>
-      {subtitle && <p className="mt-4 text-base leading-7 text-slate-600 md:text-lg">{subtitle}</p>}
-    </div>
-  );
+  return <div className="mx-auto mb-10 max-w-3xl text-center">{eyebrow && <div className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-[#36A269]">{eyebrow}</div>}<h2 className="text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">{title}</h2>{subtitle && <p className="mt-4 text-base leading-7 text-slate-600 md:text-lg">{subtitle}</p>}</div>;
 }
 
 const consumerPlans = [
@@ -89,6 +50,12 @@ const businessPlans = [
   { name: "Enterprise", price: "Custom", desc: "For RWAs, societies and bulk programs." },
 ];
 
+const blueCardPlans = [
+  { name: "BlueCard Basic", price: "₹299/year", desc: "Identity, phone and QR profile." },
+  { name: "BlueCard Secure", price: "₹999/year", desc: "Identity, address, references and trust score." },
+  { name: "BlueCard Pro", price: "₹2,499/year", desc: "Enhanced profile, reverification and work history." },
+];
+
 const checks = [
   ["shield", "Identity", "ID, phone and face-match review"],
   ["map", "Address", "Current address and field confirmation"],
@@ -101,262 +68,28 @@ const checks = [
 export default function SafeNestLandingPage() {
   return (
     <div className="min-h-screen bg-white text-slate-950">
-      <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/85 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-          <Logo />
-          <nav className="hidden items-center gap-8 text-sm text-slate-600 md:flex">
-            <a href="#checks" className="hover:text-[#0B3B82]">Checks</a>
-            <a href="#plans" className="hover:text-[#0B3B82]">Plans</a>
-            <a href="#business" className="hover:text-[#0B3B82]">Business</a>
-            <a href="#report" className="hover:text-[#0B3B82]">Report</a>
-          </nav>
-          <Button className="hidden sm:inline-flex">Verify now</Button>
-        </div>
-      </header>
+      <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/85 backdrop-blur-xl"><div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8"><Logo /><nav className="hidden items-center gap-8 text-sm text-slate-600 md:flex"><a href="#checks" className="hover:text-[#0B3B82]">Checks</a><a href="#plans" className="hover:text-[#0B3B82]">Plans</a><a href="#bluecard" className="hover:text-[#0B3B82]">BlueCard™</a><a href="#business" className="hover:text-[#0B3B82]">Business</a><a href="#report" className="hover:text-[#0B3B82]">Report</a></nav><Button className="hidden sm:inline-flex">Verify now</Button></div></header>
 
       <main>
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#EAF3FF,transparent_35%),radial-gradient(circle_at_bottom_right,#ECFDF5,transparent_30%)]" />
-          <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[1.05fr_0.95fr]">
-            <div>
-              <div className="mb-5 inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#0B3B82] shadow-sm">
-                Backed by UrbanMed Tech Pvt Ltd
-              </div>
-              <h1 className="max-w-3xl text-4xl font-semibold tracking-[-0.04em] text-slate-950 md:text-6xl md:leading-[1.03]">
-                Safer hiring for homes, businesses and gig workers.
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-                Verify maids, drivers, cooks, caretakers, delivery staff, vendors and part-time helpers with identity checks, address verification, reference calls, field visits and a clean risk-score report.
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button className="px-6 py-3.5 text-base">Start on WhatsApp <Icon name="arrow" /></Button>
-                <Button variant="outline" href="#business" className="px-6 py-3.5 text-base">For RWAs & businesses</Button>
-              </div>
-              <div className="mt-10 grid max-w-2xl grid-cols-3 gap-3">
-                {[["24–48 hrs", "Typical turnaround"], ["6 layers", "Verification stack"], ["PDF", "Risk-score report"]].map(([num, label]) => (
-                  <div key={num} className="rounded-2xl border border-slate-100 bg-white/75 p-4 shadow-sm backdrop-blur">
-                    <div className="text-xl font-semibold text-[#0B3B82] md:text-2xl">{num}</div>
-                    <div className="mt-1 text-xs leading-5 text-slate-500 md:text-sm">{label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
+        <section className="relative overflow-hidden"><div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#EAF3FF,transparent_35%),radial-gradient(circle_at_bottom_right,#ECFDF5,transparent_30%)]" /><div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[1.05fr_0.95fr]"><div><div className="mb-5 inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#0B3B82] shadow-sm">Backed by UrbanMed Tech Pvt Ltd</div><h1 className="max-w-3xl text-4xl font-semibold tracking-[-0.04em] text-slate-950 md:text-6xl md:leading-[1.03]">Safer hiring for homes, businesses and gig workers.</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">Verify maids, drivers, cooks, caretakers, delivery staff, vendors and part-time helpers with identity checks, address verification, reference calls, field visits and a clean risk-score report.</p><p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">Every verified worker can also receive a SafeNest BlueCard™ — a QR-based trust profile that can be reused across homes, apartments and businesses.</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><Button className="px-6 py-3.5 text-base">Start on WhatsApp <Icon name="arrow" /></Button><Button variant="outline" href="#bluecard" className="px-6 py-3.5 text-base">Explore BlueCard™</Button></div><div className="mt-10 grid max-w-2xl grid-cols-3 gap-3">{[["24–48 hrs", "Typical turnaround"], ["6 layers", "Verification stack"], ["QR", "BlueCard™ profile"]].map(([num, label]) => <div key={num} className="rounded-2xl border border-slate-100 bg-white/75 p-4 shadow-sm backdrop-blur"><div className="text-xl font-semibold text-[#0B3B82] md:text-2xl">{num}</div><div className="mt-1 text-xs leading-5 text-slate-500 md:text-sm">{label}</div></div>)}</div></div><Card className="overflow-hidden border-0 shadow-[0_24px_90px_rgba(11,59,130,0.16)]"><div className="border-b border-slate-100 bg-white p-6"><div className="flex items-center justify-between"><Logo compact /><span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-[#36A269]">LOW RISK</span></div><div className="mt-7"><div className="text-xs uppercase tracking-[0.22em] text-slate-400">SafeNest Report</div><h3 className="mt-2 text-2xl font-semibold">Domestic Help Verification</h3></div></div><div className="p-6"><div className="grid grid-cols-3 gap-3"><div className="rounded-2xl bg-slate-50 p-4 text-center"><div className="text-xs text-slate-500">Trust score</div><div className="mt-2 text-4xl font-semibold text-[#36A269]">82</div></div><div className="col-span-2 rounded-2xl bg-slate-50 p-4"><div className="text-xs text-slate-500">Recommendation</div><div className="mt-2 text-lg font-semibold">Recommended for hiring</div><p className="mt-1 text-sm text-slate-500">With standard onboarding controls.</p></div></div><div className="mt-5 divide-y divide-slate-100 rounded-2xl border border-slate-100">{["Identity verified", "Address visit completed", "References checked", "BlueCard™ eligible"].map((x) => <div key={x} className="flex items-center justify-between px-4 py-3 text-sm"><span className="text-slate-700">{x}</span><Icon name="check" className="h-4 w-4 text-[#36A269]" /></div>)}</div></div></Card></div></section>
 
-            <Card className="overflow-hidden border-0 shadow-[0_24px_90px_rgba(11,59,130,0.16)]">
-              <div className="border-b border-slate-100 bg-white p-6">
-                <div className="flex items-center justify-between">
-                  <Logo compact />
-                  <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-[#36A269]">LOW RISK</span>
-                </div>
-                <div className="mt-7">
-                  <div className="text-xs uppercase tracking-[0.22em] text-slate-400">SafeNest Report</div>
-                  <h3 className="mt-2 text-2xl font-semibold">Domestic Help Verification</h3>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="rounded-2xl bg-slate-50 p-4 text-center">
-                    <div className="text-xs text-slate-500">Trust score</div>
-                    <div className="mt-2 text-4xl font-semibold text-[#36A269]">82</div>
-                  </div>
-                  <div className="col-span-2 rounded-2xl bg-slate-50 p-4">
-                    <div className="text-xs text-slate-500">Recommendation</div>
-                    <div className="mt-2 text-lg font-semibold">Recommended for hiring</div>
-                    <p className="mt-1 text-sm text-slate-500">With standard onboarding controls.</p>
-                  </div>
-                </div>
-                <div className="mt-5 divide-y divide-slate-100 rounded-2xl border border-slate-100">
-                  {["Identity verified", "Address visit completed", "References checked", "No adverse record found"].map((x) => (
-                    <div key={x} className="flex items-center justify-between px-4 py-3 text-sm">
-                      <span className="text-slate-700">{x}</span><Icon name="check" className="h-4 w-4 text-[#36A269]" />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Card>
-          </div>
-        </section>
+        <section className="mx-auto max-w-7xl px-5 py-10 md:px-8 md:py-12"><SectionHeader eyebrow="Why SafeNest" title="Hiring risks most people ignore" subtitle="Before SafeNest, hiring home help or gig workers is informal and inconsistent. Here’s what typically goes wrong." /><div className="grid gap-4 md:grid-cols-3">{[["01", "Word-of-mouth hiring", "Most hires come from referrals, guards or agents with no structured verification or records."], ["02", "ID copies ≠ verification", "Aadhaar or ID photos alone don’t confirm address, history or authenticity."], ["03", "No reusable trust record", "Workers and employers start from zero every time there is a new job or new hire."]].map(([num, title, desc]) => <div key={num} className="rounded-2xl border border-slate-100 bg-slate-50 p-5"><div className="text-xs font-semibold text-[#0B3B82]">{num}</div><h3 className="mt-2 text-base font-semibold text-slate-950">{title}</h3><p className="mt-2 text-sm leading-6 text-slate-600">{desc}</p></div>)}</div></section>
 
-        <section className="mx-auto max-w-7xl px-5 py-12 md:px-8">
-          <div className="grid gap-4 md:grid-cols-3">
-            {["Word-of-mouth hiring leaves gaps.", "ID copies alone are not verification.", "SafeNest turns checks into one clear report."].map((text, i) => (
-              <div key={text} className="rounded-3xl border border-slate-100 bg-slate-50 p-6">
-                <div className="mb-4 text-sm font-semibold text-[#0B3B82]">0{i + 1}</div>
-                <p className="text-lg font-medium leading-7 text-slate-900">{text}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <section id="checks" className="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-14"><SectionHeader eyebrow="Verification stack" title="Everything important. Nothing confusing." subtitle="A practical checklist for household help, drivers, gig workers, vendors and small-business staff." /><div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{checks.map(([icon, title, desc]) => <div key={title} className="flex gap-4 rounded-2xl border border-slate-100 bg-white p-5 shadow-[0_10px_35px_rgba(15,23,42,0.04)]"><div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-blue-50 text-[#0B3B82]"><Icon name={icon} /></div><div><h3 className="text-base font-semibold text-slate-950">{title}</h3><p className="mt-1 text-sm leading-6 text-slate-600">{desc}</p></div></div>)}</div></section>
 
-        <section id="checks" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-          <SectionHeader
-            eyebrow="Verification stack"
-            title="Everything important. Nothing confusing."
-            subtitle="A practical checklist for household help, drivers, gig workers, vendors and small-business staff."
-          />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {checks.map(([icon, title, desc]) => (
-              <Card key={title} className="shadow-none">
-                <div className="p-6">
-                  <div className="mb-4 grid h-10 w-10 place-items-center rounded-2xl bg-blue-50 text-[#0B3B82]"><Icon name={icon} /></div>
-                  <h3 className="text-lg font-semibold">{title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{desc}</p>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </section>
+        <section id="plans" className="bg-slate-50 py-16 md:py-20"><div className="mx-auto max-w-7xl px-5 md:px-8"><SectionHeader eyebrow="For homes" title="Simple household plans" subtitle="Start small, upgrade when you need deeper confidence. BlueCard™ can be added or included based on plan." /><div className="grid gap-8 lg:grid-cols-2"><div className="grid gap-5">{consumerPlans.map((plan) => <Card key={plan.name} className={plan.featured ? "border-[#0B3B82]" : ""}><div className="p-6"><div className="flex items-center justify-between"><h3 className="text-lg font-semibold">{plan.name}</h3>{plan.featured && <span className="rounded-full bg-[#36A269] px-3 py-1 text-xs font-semibold text-white">Popular</span>}</div><p className="mt-2 text-sm text-slate-600">{plan.desc}</p><div className="mt-4 text-2xl font-semibold text-[#0B3B82]">{plan.price}</div><div className="mt-4 space-y-2">{plan.features.map((feature) => <div key={feature} className="flex gap-2 text-sm text-slate-700"><Icon name="check" className="h-4 w-4 text-[#36A269]" /> {feature}</div>)}</div><Button className="mt-5 w-full">Choose {plan.name}</Button></div></Card>)}</div><div className="rounded-[28px] p-6 md:p-8 text-white shadow-[0_24px_80px_rgba(2,6,23,0.6)]" style={{background: "linear-gradient(135deg, #020617 0%, #020617 40%, #020617 100%)"}}><div className="text-xs font-semibold uppercase tracking-[0.24em] text-[#36A269]">PDF report</div><h3 className="mt-3 text-2xl md:text-3xl font-semibold tracking-tight">A clean decision report, not a messy data dump.</h3><p className="mt-4 text-sm md:text-base leading-7 text-slate-300">Every report shows the person profile, completed checks, risk band, notes and a clear recommendation.</p><div className="mt-6 flex flex-wrap gap-3">{["80–100 Low", "50–79 Medium", "0–49 High"].map((x)=> <div key={x} className="rounded-full bg-white/10 px-4 py-2 text-xs font-medium">{x}</div>)}</div><div className="mt-6 rounded-2xl bg-white p-5 text-slate-900"><div className="flex items-start justify-between"><div><div className="text-xs uppercase tracking-[0.2em] text-slate-400">SN-HYD-0001</div><h4 className="mt-1 text-xl font-semibold">Verification Summary</h4></div><span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-[#36A269]">LOW RISK</span></div><div className="mt-4 grid grid-cols-2 gap-3"><div className="rounded-xl bg-slate-50 p-3"><div className="text-xs text-slate-500">Trust score</div><div className="text-3xl font-bold text-[#36A269]">82</div></div><div className="rounded-xl bg-slate-50 p-3"><div className="text-xs text-slate-500">Decision</div><div className="text-base font-semibold">Recommended</div></div></div><div className="mt-4 divide-y text-sm">{["Identity verified","Address verified","Reference checked","No adverse record found","BlueCard™ eligible"].map((x)=> <div key={x} className="flex justify-between py-2"><span>{x}</span><Icon name="check" className="h-4 w-4 text-[#36A269]" /></div>)}</div><a href="data:text/plain;charset=utf-8,SafeNest%20Sample%20Verification%20Report%0A%0AReport%20ID%3A%20SN-HYD-0001%0ATrust%20Score%3A%2082%20(LOW%20RISK)%0ADecision%3A%20Recommended%0ABlueCard%3A%20Eligible%0A%0ACompleted%20Checks%3A%0A-%20Identity%20verified%0A-%20Address%20verified%0A-%20Reference%20checked%0A-%20No%20adverse%20record%20found%0A%0AFinal%20Recommendation%3A%0ACandidate%20recommended%20for%20hiring%20with%20basic%20onboarding%20controls." download="SafeNest-Sample-Report.txt" className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#0B3B82] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#092f69]">Download Sample Report <Icon name="arrow" className="h-4 w-4 text-white" /></a></div></div></div></div></section>
 
-        <section id="plans" className="bg-slate-50 py-16 md:py-20">
-          <div className="mx-auto max-w-7xl px-5 md:px-8">
-            <SectionHeader eyebrow="For homes" title="Simple household plans" subtitle="Start small, upgrade when you need deeper confidence." />
-            <div className="grid gap-5 lg:grid-cols-3">
-              {consumerPlans.map((plan) => (
-                <Card key={plan.name} className={plan.featured ? "border-[#0B3B82] shadow-[0_24px_80px_rgba(11,59,130,0.14)]" : "shadow-none"}>
-                  <div className="p-7">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-semibold">{plan.name}</h3>
-                      {plan.featured && <span className="rounded-full bg-[#36A269] px-3 py-1 text-xs font-semibold text-white">Popular</span>}
-                    </div>
-                    <p className="mt-2 min-h-12 text-sm leading-6 text-slate-600">{plan.desc}</p>
-                    <div className="mt-6 text-4xl font-semibold tracking-tight text-[#0B3B82]">{plan.price}</div>
-                    <div className="mt-6 space-y-3">
-                      {plan.features.map((feature) => (
-                        <div key={feature} className="flex gap-3 text-sm text-slate-700"><Icon name="check" className="mt-0.5 h-4 w-4 text-[#36A269]" />{feature}</div>
-                      ))}
-                    </div>
-                    <Button className="mt-7 w-full">Choose {plan.name}</Button>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
+        <section id="bluecard" className="bg-white py-16 md:py-20"><div className="mx-auto max-w-7xl px-5 md:px-8"><SectionHeader eyebrow="SafeNest BlueCard™" title="Portable trust identity for blue-collar and gig workers" subtitle="BlueCard™ is separate from background verification, but connected. It turns a completed verification into a reusable QR-based worker profile." /><div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]"><div className="rounded-[32px] bg-[#020617] p-6 text-white shadow-[0_24px_80px_rgba(2,6,23,0.35)] md:p-8"><div className="flex items-center justify-between"><div><div className="text-xs uppercase tracking-[0.22em] text-blue-200">SafeNest BlueCard™</div><div className="mt-2 text-2xl font-semibold">BC-HYD-002184</div></div><span className="rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-semibold text-emerald-300">VERIFIED</span></div><div className="mt-8 rounded-3xl bg-gradient-to-br from-[#0B3B82] to-[#164C9A] p-6"><div className="flex items-center gap-5"><div className="grid h-20 w-20 place-items-center rounded-2xl bg-white/15 text-3xl font-semibold">RK</div><div><h3 className="text-2xl font-semibold">Ravi Kumar</h3><p className="mt-1 text-blue-100">Driver • Gig Worker</p><div className="mt-3 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs"><Icon name="check" className="h-3.5 w-3.5 text-emerald-300" /> Verified by SafeNest</div></div></div><div className="mt-8 grid grid-cols-3 gap-3 text-sm"><div className="rounded-2xl bg-white/10 p-4"><div className="text-blue-100">Score</div><div className="mt-1 text-3xl font-semibold">82</div></div><div className="rounded-2xl bg-white/10 p-4"><div className="text-blue-100">Risk</div><div className="mt-2 font-semibold">Low</div></div><div className="rounded-2xl bg-white/10 p-4"><div className="text-blue-100">Valid</div><div className="mt-2 font-semibold">May 2027</div></div></div><div className="mt-6 flex items-center justify-between rounded-2xl bg-white p-4 text-slate-950"><div><div className="text-xs text-slate-500">Scan QR to view</div><div className="font-semibold">Digital trust profile</div></div><Icon name="qr" className="h-10 w-10 text-[#0B3B82]" /></div></div></div><div className="grid gap-5"><Card className="shadow-none"><div className="p-6"><h3 className="text-xl font-semibold">How it fits with verification</h3><p className="mt-3 leading-7 text-slate-600">Background verification is the one-time check. BlueCard™ is the reusable identity created from that verified data. It can be purchased by the worker or sponsored by the person hiring them.</p></div></Card><div className="grid gap-4 sm:grid-cols-3">{blueCardPlans.map((plan) => <Card key={plan.name} className="shadow-none"><div className="p-5"><h4 className="text-sm font-semibold text-slate-950">{plan.name}</h4><div className="mt-2 text-2xl font-semibold text-[#0B3B82]">{plan.price}</div><p className="mt-2 text-xs leading-5 text-slate-600">{plan.desc}</p></div></Card>)}</div><div className="grid gap-3 sm:grid-cols-2">{["Worker buys their own BlueCard™", "Employer sponsors BlueCard™ after verification", "RWA sponsors BlueCards for all recurring workers", "QR profile shows verification summary and validity"].map((x) => <div key={x} className="flex gap-3 rounded-2xl bg-slate-50 p-4 text-sm text-slate-700"><Icon name="check" className="h-4 w-4 shrink-0 text-[#36A269]" />{x}</div>)}</div><div className="flex flex-col gap-3 sm:flex-row"><Button href="#contact">Get Your BlueCard™</Button><Button variant="outline" href="#business">Sponsor Worker Verification</Button></div></div></div></div></section>
 
-        <section id="business" className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20">
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-            <div>
-              <div className="text-xs font-semibold uppercase tracking-[0.24em] text-[#36A269]">For businesses & RWAs</div>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">Bulk verification for people entering your workspace or community.</h2>
-              <p className="mt-4 text-lg leading-8 text-slate-600">Built for apartments, retail stores, offices, restaurants, logistics teams, vendors and gig workforce onboarding.</p>
-              <div className="mt-8 grid gap-3">
-                {["Bulk verification camps", "Resident and business pricing", "Vendor / gig worker verification", "Monthly verification dashboard"].map((x) => (
-                  <div key={x} className="flex items-center gap-3 text-slate-700"><span className="grid h-6 w-6 place-items-center rounded-full bg-emerald-50"><Icon name="check" className="h-3.5 w-3.5 text-[#36A269]" /></span>{x}</div>
-                ))}
-              </div>
-            </div>
-            <div className="grid gap-4 md:grid-cols-3">
-              {businessPlans.map((plan) => (
-                <Card key={plan.name} className="shadow-none">
-                  <div className="p-6">
-                    <h3 className="font-semibold">{plan.name}</h3>
-                    <div className="mt-4 text-2xl font-semibold text-[#0B3B82]">{plan.price}</div>
-                    <p className="mt-3 text-sm leading-6 text-slate-600">{plan.desc}</p>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
+        <section id="business" className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20"><div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]"><div><div className="text-xs font-semibold uppercase tracking-[0.24em] text-[#36A269]">For businesses & RWAs</div><h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">Bulk verification for people entering your workspace or community.</h2><p className="mt-4 text-lg leading-8 text-slate-600">Built for apartments, retail stores, offices, restaurants, logistics teams, vendors and gig workforce onboarding.</p><div className="mt-8 grid gap-3">{["Bulk verification camps", "Resident and business pricing", "Vendor / gig worker verification", "BlueCard™ sponsorship programs", "Monthly verification dashboard"].map((x) => <div key={x} className="flex items-center gap-3 text-slate-700"><span className="grid h-6 w-6 place-items-center rounded-full bg-emerald-50"><Icon name="check" className="h-3.5 w-3.5 text-[#36A269]" /></span>{x}</div>)}</div></div><div className="grid gap-4 md:grid-cols-3">{businessPlans.map((plan) => <Card key={plan.name} className="shadow-none"><div className="p-6"><h3 className="font-semibold">{plan.name}</h3><div className="mt-4 text-2xl font-semibold text-[#0B3B82]">{plan.price}</div><p className="mt-3 text-sm leading-6 text-slate-600">{plan.desc}</p></div></Card>)}</div></div><div className="mt-12 rounded-[32px] border border-slate-100 bg-slate-50 p-5 md:p-8"><div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]"><div><h3 className="text-2xl font-semibold">Request an RWA or business callback</h3><p className="mt-3 leading-7 text-slate-600">Share basic details. We will call back with a verification plan, BlueCard™ sponsorship options and bulk pricing.</p></div><form className="grid gap-3 sm:grid-cols-2" action="#contact"><input placeholder="Business / Society name" className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-[#0B3B82]" /><input placeholder="Contact person" className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-[#0B3B82]" /><input placeholder="Phone number" className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-[#0B3B82]" /><input placeholder="Staff / flats count" className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-[#0B3B82]" /><Button className="sm:col-span-2">Request callback</Button></form></div></div></section>
 
-          <div className="mt-12 rounded-[32px] border border-slate-100 bg-slate-50 p-5 md:p-8">
-            <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-              <div>
-                <h3 className="text-2xl font-semibold">Request an RWA or business callback</h3>
-                <p className="mt-3 leading-7 text-slate-600">Share basic details. We will call back with a verification plan and bulk pricing.</p>
-              </div>
-              <form className="grid gap-3 sm:grid-cols-2" action="#contact">
-                <input placeholder="Business / Society name" className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-[#0B3B82]" />
-                <input placeholder="Contact person" className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-[#0B3B82]" />
-                <input placeholder="Phone number" className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-[#0B3B82]" />
-                <input placeholder="Staff / flats count" className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-[#0B3B82]" />
-                <Button className="sm:col-span-2">Request callback</Button>
-              </form>
-            </div>
-          </div>
-        </section>
+        <section id="report" className="bg-slate-950 py-16 text-white md:py-20"><div className="mx-auto grid max-w-7xl gap-10 px-5 md:px-8 lg:grid-cols-2"><div><div className="text-xs font-semibold uppercase tracking-[0.24em] text-[#36A269]">PDF report</div><h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">A clean decision report, not a messy data dump.</h2><p className="mt-4 text-lg leading-8 text-slate-300">Every report shows the person profile, completed checks, risk band, BlueCard™ eligibility and a clear recommendation.</p></div><div className="rounded-[28px] bg-white p-6 text-slate-950"><div className="flex items-start justify-between"><div><div className="text-xs uppercase tracking-[0.22em] text-slate-400">SN-HYD-0001</div><h3 className="mt-2 text-2xl font-semibold">Verification Summary</h3></div><span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-[#36A269]">LOW RISK</span></div><div className="mt-6 grid grid-cols-2 gap-3"><div className="rounded-2xl bg-slate-50 p-4"><div className="text-sm text-slate-500">Trust score</div><div className="mt-2 text-5xl font-semibold text-[#36A269]">82</div></div><div className="rounded-2xl bg-slate-50 p-4"><div className="text-sm text-slate-500">Decision</div><div className="mt-2 text-xl font-semibold">Recommended</div></div></div><div className="mt-5 divide-y divide-slate-100 rounded-2xl border border-slate-100">{["Identity verified", "Address verified", "Reference checked", "No adverse record found", "BlueCard™ eligible"].map((x) => <div key={x} className="flex justify-between px-4 py-3 text-sm"><span>{x}</span><Icon name="check" className="h-4 w-4 text-[#36A269]" /></div>)}</div></div></div></section>
 
-        <section id="report" className="bg-slate-950 py-16 text-white md:py-20">
-          <div className="mx-auto grid max-w-7xl gap-10 px-5 md:px-8 lg:grid-cols-2">
-            <div>
-              <div className="text-xs font-semibold uppercase tracking-[0.24em] text-[#36A269]">PDF report</div>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">A clean decision report, not a messy data dump.</h2>
-              <p className="mt-4 text-lg leading-8 text-slate-300">Every report shows the person profile, completed checks, risk band, notes and a clear recommendation.</p>
-              <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                {["80–100 Low", "50–79 Medium", "0–49 High"].map((x) => <div key={x} className="rounded-2xl bg-white/8 p-4 text-sm font-medium text-white">{x}</div>)}
-              </div>
-            </div>
-            <div className="rounded-[28px] bg-white p-6 text-slate-950">
-              <div className="flex items-start justify-between">
-                <div><div className="text-xs uppercase tracking-[0.22em] text-slate-400">SN-HYD-0001</div><h3 className="mt-2 text-2xl font-semibold">Verification Summary</h3></div>
-                <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-[#36A269]">LOW RISK</span>
-              </div>
-              <div className="mt-6 grid grid-cols-2 gap-3">
-                <div className="rounded-2xl bg-slate-50 p-4"><div className="text-sm text-slate-500">Trust score</div><div className="mt-2 text-5xl font-semibold text-[#36A269]">82</div></div>
-                <div className="rounded-2xl bg-slate-50 p-4"><div className="text-sm text-slate-500">Decision</div><div className="mt-2 text-xl font-semibold">Recommended</div></div>
-              </div>
-              <div className="mt-5 divide-y divide-slate-100 rounded-2xl border border-slate-100">
-                {["Identity verified", "Address verified", "Reference checked", "No adverse record found", "Final recommendation added"].map((x) => <div key={x} className="flex justify-between px-4 py-3 text-sm"><span>{x}</span><Icon name="check" className="h-4 w-4 text-[#36A269]" /></div>)}
-              </div>
-            </div>
-          </div>
-        </section>
+        <section id="process" className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20"><div className="grid gap-10 lg:grid-cols-2"><div><SectionHeader eyebrow="Process" title="WhatsApp-first. No friction." subtitle="Customers send details, documents and payment confirmation. SafeNest handles verification, report delivery and BlueCard™ issuance when selected." /><div className="grid gap-3">{["Send worker details", "Collect consent and documents", "Run digital and field checks", "Deliver report or BlueCard™ profile"].map((x, i) => <div key={x} className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-white p-4"><span className="grid h-8 w-8 place-items-center rounded-full bg-[#0B3B82] text-sm font-semibold text-white">{i + 1}</span><span className="font-medium text-slate-800">{x}</span></div>)}</div></div><div className="rounded-[32px] p-7 text-white shadow-[0_24px_80px_rgba(11,59,130,0.18)]" style={{ backgroundColor: BRAND.blue }}><Icon name="phone" className="mb-5 h-8 w-8 text-white" /><h3 className="text-2xl font-semibold">Sample WhatsApp flow</h3><div className="mt-6 space-y-3 text-sm">{["Hi 👋 Welcome to SafeNest. Please share the worker details.", "Upload ID proof, phone number and current address.", "✅ Verification started. Report usually takes 24–48 hours.", "✅ Report ready. BlueCard™ eligible."].map((x, i) => <div key={x} className="rounded-2xl p-4 text-white" style={{ backgroundColor: i === 3 ? BRAND.green : "rgba(255,255,255,0.12)" }}>{x}</div>)}</div></div></div></section>
 
-        <section id="process" className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20">
-          <div className="grid gap-10 lg:grid-cols-2">
-            <div>
-              <SectionHeader eyebrow="Process" title="WhatsApp-first. No friction." subtitle="Customers send details, documents and payment link confirmation. SafeNest handles the verification workflow and report delivery." />
-              <div className="grid gap-3">
-                {["Send worker details", "Collect consent and documents", "Run digital and field checks", "Deliver risk-score PDF"].map((x, i) => (
-                  <div key={x} className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-white p-4"><span className="grid h-8 w-8 place-items-center rounded-full bg-[#0B3B82] text-sm font-semibold text-white">{i + 1}</span><span className="font-medium text-slate-800">{x}</span></div>
-                ))}
-              </div>
-            </div>
-            <div className="rounded-[32px] p-7 text-white shadow-[0_24px_80px_rgba(11,59,130,0.18)]" style={{ backgroundColor: BRAND.blue }}>
-              <Icon name="phone" className="mb-5 h-8 w-8 text-white" />
-              <h3 className="text-2xl font-semibold">Sample WhatsApp flow</h3>
-              <div className="mt-6 space-y-3 text-sm">
-                {["Hi 👋 Welcome to SafeNest. Please share the worker details.", "Upload ID proof, phone number and current address.", "✅ Verification started. Report usually takes 24–48 hours.", "✅ Report ready. Summary: LOW RISK."].map((x, i) => (
-                  <div key={x} className="rounded-2xl p-4 text-white" style={{ backgroundColor: i === 3 ? BRAND.green : "rgba(255,255,255,0.12)" }}>{x}</div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+        <section className="bg-slate-50 py-12 md:py-14"><div className="mx-auto max-w-7xl px-5 md:px-8"><SectionHeader eyebrow="Trust & compliance" title="Built with consent and privacy in mind" subtitle="SafeNest reports and BlueCard™ profiles support better hiring decisions while keeping verification purpose-limited and consent-based." /><div className="grid gap-4 md:grid-cols-3">{[["Consent collected", "Workers approve verification before checks begin."], ["Purpose-limited sharing", "Only relevant verification summaries are shared."], ["Controlled QR visibility", "BlueCard™ QR pages show limited public details."]].map(([title, desc]) => <div key={title} className="flex gap-4 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm"><div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-emerald-50 text-[#36A269]"><Icon name="lock" className="h-5 w-5" /></div><div><h3 className="text-sm font-semibold text-slate-950">{title}</h3><p className="mt-1 text-sm leading-6 text-slate-600">{desc}</p></div></div>)}</div></div></section>
 
-        <section className="bg-slate-50 py-16">
-          <div className="mx-auto max-w-7xl px-5 md:px-8">
-            <SectionHeader eyebrow="Trust & compliance" title="Built with consent and privacy in mind" subtitle="SafeNest reports support better hiring decisions. They are based on available records, field observations and reference feedback, and are not legal guarantees." />
-            <div className="grid gap-4 md:grid-cols-3">
-              {["Consent collected before verification", "Data shared only for intended purpose", "Clear disclaimer in every report"].map((x) => (
-                <Card key={x} className="shadow-none"><div className="p-6"><Icon name="lock" className="mb-4 text-[#36A269]" /><p className="font-medium leading-7">{x}</p></div></Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-          <SectionHeader title="Common questions" subtitle="Quick answers for families, apartments and small businesses." />
-          <div className="grid gap-4 md:grid-cols-2">
-            {[
-              ["How long does it take?", "Most checks are completed within 24–48 hours, depending on document quality, reference availability and field visit needs."],
-              ["Can you verify gig workers?", "Yes. SafeNest can verify delivery staff, temporary helpers, freelancers, vendors and part-time workers."],
-              ["Do you support police verification?", "We can support and guide the police-verification process where applicable. Timelines depend on the local process."],
-              ["Can RWAs run bulk drives?", "Yes. We can support apartment-wide verification drives, resident pricing and recurring staff lists."],
-            ].map(([q, a]) => (
-              <Card key={q} className="shadow-none"><div className="p-6"><h3 className="font-semibold">{q}</h3><p className="mt-3 text-sm leading-6 text-slate-600">{a}</p></div></Card>
-            ))}
-          </div>
-        </section>
-
-        <section id="contact" className="mx-auto max-w-5xl px-5 py-16 text-center md:px-8 md:py-20">
-          <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">Ready to verify before you hire?</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-slate-600">Start with one verification or request a bulk plan for your apartment, office or business.</p>
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <Button className="px-8 py-3.5 text-base">Start on WhatsApp</Button>
-            <Button variant="outline" href="#business" className="px-8 py-3.5 text-base">Request business callback</Button>
-          </div>
-          <div className="mt-10 text-sm text-slate-500">SafeNest by UrbanMed Tech Pvt Ltd • Hyderabad, India</div>
-        </section>
+        <section id="contact" className="mx-auto max-w-5xl px-5 py-16 text-center md:px-8 md:py-20"><h2 className="text-3xl font-semibold tracking-tight md:text-5xl">Ready to verify before you hire?</h2><p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-slate-600">Start with one verification, get a BlueCard™ or request a bulk plan for your apartment, office or business.</p><div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row"><Button className="px-8 py-3.5 text-base">Start on WhatsApp</Button><Button variant="outline" href="#bluecard" className="px-8 py-3.5 text-base">Get BlueCard™</Button></div><div className="mt-10 text-sm text-slate-500">SafeNest by UrbanMed Tech Pvt Ltd • Hyderabad, India</div></section>
       </main>
     </div>
   );
