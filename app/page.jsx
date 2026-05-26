@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 
 const BRAND = { blue: "#0B3B82", green: "#36A269" };
 
@@ -51,9 +53,9 @@ const businessPlans = [
 ];
 
 const blueCardPlans = [
-  { name: "BlueCard Basic", price: "₹299/year", desc: "Identity, phone and QR profile." },
-  { name: "BlueCard Secure", price: "₹999/year", desc: "Identity, address, references and trust score." },
-  { name: "BlueCard Pro", price: "₹2,499/year", desc: "Enhanced profile, reverification and work history." },
+  { name: "BlueCard Basic", price: "₹499", desc: "Identity, phone and QR profile." },
+  { name: "BlueCard Secure", price: "₹999", desc: "Identity, address, references and trust score." },
+  { name: "BlueCard Pro", price: "₹1,499", desc: "Enhanced profile, reverification and work history." },
 ];
 
 const checks = [
